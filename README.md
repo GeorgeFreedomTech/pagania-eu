@@ -48,7 +48,7 @@ Pagania is a **one-person project**. This is international EU language version u
 
 ## 🔗 Links
 
-- Website: **[https://pagania.cz](https://pagania.cz)**
+- Website: **[https://pagania.eu](https://pagania.eu)**
 - George Freedom: **[https://GeorgeFreedom.com](https://GeorgeFreedom.com)**
 - LinkedIn: **[https://www.linkedin.com/in/georgefreedom/](https://www.linkedin.com/in/georgefreedom/)**
 
