@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pagania — Historical Culture, Traditions & Skills</title>
+
+    <!-- Typography: serif for Pagania's editorial / historical character, sans-serif for UI and body text. -->
+    <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Pico CSS provides the small semantic baseline; Pagania's visual identity is defined in style.css. -->
+    <link rel="stylesheet" href="static/css/pico.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+
+    <!-- Marked.js renders the editable Markdown content -->
+    <script src="static/js/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="split-layout">
+
+        <!-- ================================================================
+             LEFT PANEL
+             The desktop identity of Pagania. 
+             ================================================================ -->
+        <aside class="split-left">
+            <div class="brand-section">
+
+                <h1 class="brand-title">Pagania</h1>
+                <p class="brand-motto">Historical knowledge. Practical experience.</p>
+
+                <!-- Main Pagania visual -->               
+                <figure class="profile-image">
+                    <div class="image-placeholder">
+                        <img src="/static/img/pagania-profile.jpg">
+                    </div>
+        
+                </figure>
+            </div>
+
+            <!-- Small identity line -->
+            <div class="left-meta">
+                <span>HISTORY</span>
+                <span>TRADITIONS</span>
+                <span>SKILLS</span>
+            </div>
+        </aside>
+
+        <!-- ================================================================
+             RIGHT PANEL
+             The actual content area. On desktop it has its own scroll context;
+             on smaller screens it returns to a normal one-page flow.
+             ================================================================ -->
+        <main class="split-right">
+
+            <!-- Language controls -->
+            <div class="controls-section" aria-label="Language selection">
+                <a href="https://www.pagania.eu/" class="language-link active" aria-current="page">EN</a>
+                <span aria-hidden="true">|</span>
+                <a href="https://www.pagania.cz/" class="language-link">CZ</a>
+            </div>
+
+            <!-- Sticky navigation -->
+            <nav class="top-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#references">References</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- HOME: Markdown content -->
+            <section id="home" class="content-section home-section">
+                <div class="home-intro">
+                    <span class="eyebrow">Consultations / Workshops / Lectures</span>                   
+                    <div id="content-home" class="markdown-content">Loading about...</div>
+            </section>
+
+            <hr>
+
+            <!-- ABOUT: Markdown content -->
+            <section id="about" class="content-section">
+                <div class="section-label-row">
+                    <span class="section-number">01</span>
+                    <h2>About</h2>                    
+                </div>
+                <div id="content-about" class="markdown-content">Loading about...</div>
+            </section>
+
+            <hr>
+
+            <!-- SERVICES: Markdown content -->
+            <section id="services" class="content-section services-section">
+                <div class="section-label-row">
+                    <span class="section-number">02</span>
+                    <h2>Services</h2>                    
+                </div>
+                <div id="content-services" class="markdown-content">Loading services...</div>                
+            </section>
+
+            <hr>
+
+            <!-- PORTFOLIO: Markdown content -->
+            <section id="portfolio" class="content-section">
+                <div class="section-label-row">
+                    <span class="section-number">03</span>
+                    <h2>Portfolio</h2>            
+                </div>
+                <h3 class="subsection-title">Gallery</h3>
+                <p class="section-lead">Pics of Pagania activities, workshops and presentations.</p>
+                
+                <!-- Pics grid: Pagania workshops, events and presentations material -->
+                <div class="gallery-grid">
+                    <div class="gallery-item"><img src="static/img/pagania-games.JPG" alt="historical board games Pagania"></div>
+                    <div class="gallery-item"><img src="static/img/pagania-workshop.jpg" alt="Viking workshop Pagania"></div>
+                    <div class="gallery-item"><img src="static/img/pagania-runes-ogham-divination.jpg" alt="Pagania divination with runes and ogham"></div>
+                    <div class="gallery-item"><img src="static/img/pagania-tent.jpg" alt="historical tent Pagania"></div>
+                </div>
+
+                <h3 class="subsection-title">Videos</h3>
+
+                <!-- Video grid: Pagania YouTube material -->
+                <div class="video-grid">
+                    <div class="gallery-video"><iframe src="https://www.youtube.com/embed/7dsG97qQp1E" title="Pagania video 1" allowfullscreen></iframe></div>
+                    <div class="gallery-video"><iframe src="https://www.youtube.com/embed/QyiC1SE7vS8" title="Pagania video 2" allowfullscreen></iframe></div>
+                    <div class="gallery-video"><iframe src="https://www.youtube.com/embed/0aj--CNrUrE" title="Pagania video 3" allowfullscreen></iframe></div>
+                    <div class="gallery-video"><iframe src="https://www.youtube.com/embed/7NtCj1l32FM" title="Pagania video 4" allowfullscreen></iframe></div>
+                </div>
+            </section>
+
+            <hr>
+
+            <!-- REFERENCES: Markdown content -->
+            <section id="references" class="content-section">
+                <div class="section-label-row">
+                    <span class="section-number">04</span>
+                    <h2>References</h2>                  
+                </div>
+                <div id="content-references" class="markdown-content">Loading references...</div>
+            </section>
+
+            <hr>
+
+            <!-- CONTACT Markdown content -->
+            <section id="contact" class="content-section contact-section">
+                <div class="section-label-row">
+                    <span class="section-number">05</span>
+                    <h2>Contact</h2>                   
+                </div>
+                
+                <div id="content-contact" class="markdown-content">Loading references...</div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="main-footer">
+                <div class="footer-divider" aria-hidden="true">ᛉ</div>
+                <p><small>&copy; 2026 Pagania. Consultations · Workshops · Lectures
+                    <br>
+                <span class="built-by">Built by <a href="https://georgefreedom.com" target="_blank" rel="noopener" class="secondary">George Freedom</a></span></small></p>
+            </footer>
+        </main>
+    </div>
+
+    <script src="static/js/main.js"></script>
+</body>
+</html>
