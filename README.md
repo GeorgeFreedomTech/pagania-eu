@@ -1,6 +1,6 @@
 # Pagania EU
 
-An independent historical project focused on **historical culture, traditions, and practical skills**. 
+An independent project focused on **historical culture, traditions, and practical skills** - International version.
 
 Pagania provides **consultations, workshops, lectures, and demonstrations** covering historical cultures, games, traditions, everyday life, and practical skills, with a focus on antiquity, the Early Middle Ages, and pre-Christian European traditions woth focus on Vikings, Celts and Slavs.
 
