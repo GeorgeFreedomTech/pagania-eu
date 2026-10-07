@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Pagania — Historical Culture, Traditions & Skills</title>
+    <title>Pagania</title>
 
     <!-- Typography: serif for Pagania's editorial / historical character, sans-serif for UI and body text. -->
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -19,6 +19,32 @@
 
 <body>
     <div class="split-layout">
+
+        <!-- ================================================================
+             TOP NAVIGATION
+             Global navigation shared across the entire page.
+             ================================================================ -->
+        <header class="site-header">
+
+            <nav class="top-nav" aria-label="Main navigation">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#references">References</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Language controls -->
+            <div class="controls-section" aria-label="Language selection">
+                <a href="https://www.pagania.eu/" class="language-link active" aria-current="page">EN</a>
+                <span aria-hidden="true">|</span>
+                <a href="https://www.pagania.cz/" class="language-link">CZ</a>
+            </div>
+
+        </header>
 
         <!-- ================================================================
              LEFT PANEL
@@ -53,25 +79,6 @@
              on smaller screens it returns to a normal one-page flow.
              ================================================================ -->
         <main class="split-right">
-
-            <!-- Language controls -->
-            <div class="controls-section" aria-label="Language selection">
-                <a href="https://www.pagania.eu/" class="language-link active" aria-current="page">EN</a>
-                <span aria-hidden="true">|</span>
-                <a href="https://www.pagania.cz/" class="language-link">CZ</a>
-            </div>
-
-            <!-- Sticky navigation -->
-            <nav class="top-nav" aria-label="Main navigation">
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#references">References</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
 
             <!-- HOME: Markdown content -->
             <section id="home" class="content-section home-section">

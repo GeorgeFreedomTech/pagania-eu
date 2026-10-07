@@ -1,9 +1,8 @@
 /* ========================================================================
    PAGANIA — VISUAL SYSTEM
    ------------------------------------------------------------------------
-   The design intentionally keeps the warm wood / paper palette from the
-   original prototype while changing the composition toward an editorial,
-   book-like layout. Content is still supplied separately through Markdown.
+   The design intentionally keeps the warm wood / paper palette.
+   Content is supplied separately through Markdown.
    ======================================================================== */
 
 /* ------------------------------------------------------------------------
@@ -20,11 +19,6 @@ html {
     height: 100%;
 }
 
-/*
-   The project originally used Pico's dark theme attribute as a convenient
-   switch for custom colours. 
-*/
-
 [data-theme="dark"] {
     --pico-card-background-color: #e7dabd;
     --pico-background-color: #f6f5f3;
@@ -40,7 +34,6 @@ html {
     --pico-primary-inverse: #f5ecd8;
     --pico-border-radius: 0.12rem;
 
-    /* One restrained warm accent for links and important actions. */
     --pagania-accent: #8b4829;
     --pagania-accent-hover: #6f341d;
     --pagania-paper: #f6f5f3;
@@ -66,66 +59,79 @@ a:hover {
     color: var(--pagania-accent-hover);
 }
 
+
 /* ------------------------------------------------------------------------
-   2. DESKTOP SPLIT LAYOUT
+   2. PAGE LAYOUT
    ------------------------------------------------------------------------
-   This remains the defining structural idea of the original Pagania site:
-   the left side is the identity / cover, the right side is the content.
+   The global header now sits above the two main panels on desktop and
+   mobile. The logical order is always:
+   
+   HEADER → LEFT PANEL → RIGHT CONTENT
    ------------------------------------------------------------------------ */
+
 .split-layout {
-    display: flex;
+    display: grid;
+    grid-template-columns: 34% 66%;
+    grid-template-rows: auto 1fr;
     min-height: 100vh;
-    flex-direction: column;
+}
+
+.site-header {
+    grid-column: 1 / -1;
+    grid-row: 1;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 0 5.5rem;
+
+    background: var(--pagania-paper);
+    border-bottom: 1px solid var(--pagania-line);
+
+    position: sticky;
+    top: 0;
+    z-index: 20;
 }
 
 .split-left {
+    grid-column: 1;
+    grid-row: 2;
+
     background: var(--pagania-panel);
-    padding: 3rem 2.25rem 2rem;
+    padding: 2.3rem 2.25rem 3rem;
     border-right: 1px solid var(--pagania-line);
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    min-height: calc(100vh - 57px);
+    box-sizing: border-box;
 }
 
 .split-right {
-    flex: 1;
+    grid-column: 2;
+    grid-row: 2;
+
     min-width: 0;
-    padding: 1rem 1.5rem 3rem;
+    padding: 0 5.5rem 4rem;
+
+    max-height: calc(100vh - 57px);
+    overflow-y: auto;
+    box-sizing: border-box;
 }
 
-@media (min-width: 992px) {
-    .split-layout {
-        flex-direction: row;
-    }
-
-    .split-left {
-        width: 34%;
-        max-width: 470px;
-        min-height: 100vh;
-        height: 100vh;
-        position: sticky;
-        top: 0;
-        box-sizing: border-box;
-    }
-
-    .split-right {
-        width: 66%;
-        max-height: 100vh;
-        overflow-y: auto;
-        padding: 0 5.5rem 4rem;
-        box-sizing: border-box;
-    }
-}
 
 /* ------------------------------------------------------------------------
    3. LEFT PANEL / BRAND
    ------------------------------------------------------------------------ */
+
 .brand-section {
     max-width: 27rem;
     margin-inline: auto;
     width: 100%;
 }
-
 
 .brand-title {
     font-family: 'IM Fell English', Georgia, serif;
@@ -142,13 +148,8 @@ a:hover {
     font-size: 0.87rem;
     line-height: 1.55;
     max-width: 22rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
 }
-
-/*
-   The photo is treated as a framed editorial object rather than a generic
-   rounded card.
-*/
 
 .profile-image {
     margin: 0;
@@ -225,15 +226,23 @@ a:hover {
     margin-right: 0.8rem;
 }
 
+
 /* ------------------------------------------------------------------------
-   4. RIGHT-SIDE CONTROLS / NAVIGATION
+   4. HEADER / NAVIGATION
    ------------------------------------------------------------------------ */
+
+.site-header .controls-section {
+    order: 2;
+}
+
 .controls-section {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 0.45rem;
-    padding: 0.75rem 0 0.35rem;
+
+    padding: 0.75rem 0;
+
     color: var(--pagania-muted);
 }
 
@@ -250,23 +259,22 @@ a:hover {
 }
 
 .top-nav {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: rgba(246, 245, 243, 0.96);
-    border-bottom: 1px solid var(--pagania-line);
-    margin-bottom: 2rem;
+    order: 1;
+
+    margin: 0;
     padding: 0.85rem 0;
-    backdrop-filter: blur(8px);
 }
 
 .top-nav ul {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+
     gap: clamp(0.8rem, 2vw, 1.65rem);
+
     margin: 0;
     padding: 0;
+
     list-style: none;
     overflow-x: auto;
 }
@@ -288,10 +296,9 @@ a:hover {
     color: var(--pagania-accent);
 }
 
+
 /* ------------------------------------------------------------------------
    5. HOME / INTRODUCTION
-   ------------------------------------------------------------------------
-   The home section uses typography, whitespace and a small editorial side note.
    ------------------------------------------------------------------------ */
 
 .home-section {
@@ -332,6 +339,7 @@ a:hover {
     color: var(--pagania-muted);
     line-height: 1.75;
 }
+
 
 /* ------------------------------------------------------------------------
    6. SECTION RHYTHM / HEADINGS
@@ -376,6 +384,7 @@ hr {
     max-width: 42rem;
 }
 
+
 /* ------------------------------------------------------------------------
    7. MARKDOWN CONTENT
    ------------------------------------------------------------------------
@@ -416,7 +425,7 @@ hr {
 
 
 /* ------------------------------------------------------------------------
-   9. GALLERY / VIDEOS
+   8. GALLERY / VIDEOS
    ------------------------------------------------------------------------ */
 
 .gallery-grid {
@@ -478,8 +487,9 @@ hr {
     border: 0;
 }
 
+
 /* ------------------------------------------------------------------------
-   10. CONTACT
+   9. CONTACT
    ------------------------------------------------------------------------ */
 
 .contact-layout {
@@ -501,8 +511,9 @@ hr {
     line-height: 1.4;
 }
 
+
 /* ------------------------------------------------------------------------
-   11. FOOTER
+   10. FOOTER
    ------------------------------------------------------------------------ */
 
 .main-footer {
@@ -536,17 +547,52 @@ hr {
     text-decoration: underline;
 }
 
+
 /* ------------------------------------------------------------------------
-   12. RESPONSIVE BEHAVIOUR
+   11. RESPONSIVE BEHAVIOUR
    ------------------------------------------------------------------------ */
 
+@media (min-width: 992px) {
+
+    html,
+    body {
+        overflow: hidden;
+    }
+}
+
 @media (max-width: 991px) {
+
+    html,
+    body {
+        overflow: auto;
+    }
+
+    .split-layout {
+        display: block;
+        min-height: 100vh;
+    }
+
+    .site-header {
+        position: sticky;
+        top: 0;
+
+        display: flex;
+
+        padding: 0.5rem 1.25rem;
+
+        gap: 1rem;
+
+        z-index: 20;
+    }
+
     .split-left {
         min-height: auto;
     }
 
     .split-right {
         padding-inline: 2rem;
+        max-height: none;
+        overflow-y: visible;
     }
 
     .brand-section,
@@ -564,12 +610,32 @@ hr {
 }
 
 @media (max-width: 760px) {
+
     .split-left {
         padding: 2.5rem 1.25rem 1.5rem;
     }
 
     .split-right {
         padding-inline: 1.25rem;
+    }
+
+    .site-header {
+        align-items: flex-start;
+    }
+
+    .top-nav {
+        min-width: 0;
+        flex: 1;
+    }
+
+    .top-nav ul {
+        gap: 0.7rem 1rem;
+        flex-wrap: wrap;
+        overflow-x: visible;
+    }
+
+    .controls-section {
+        flex-shrink: 0;
     }
 
     .profile-image .image-placeholder {
@@ -613,12 +679,21 @@ hr {
 }
 
 @media (max-width: 520px) {
+
+    .site-header {
+        padding-inline: 1rem;
+    }
+
     .controls-section {
         justify-content: flex-start;
     }
 
     .top-nav ul {
-        gap: 1rem;
+        gap: 0.5rem 0.8rem;
+    }
+
+    .top-nav a {
+        font-size: 0.75rem;
     }
 
     .home-section h2 {
