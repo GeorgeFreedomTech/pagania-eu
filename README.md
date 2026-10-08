@@ -9,7 +9,6 @@ Pagania is a **one-person project**. This is international EU language version u
 ## Tech Stack
 
 - **HTML5** (Semantic structure)
-- **Pico CSS** (Lightweight CSS framework)
 - **Custom CSS** (Layout and visual identity)
 - **JavaScript** (Lightweight interface functionality)
 - **Markdown** (Modular content)
@@ -35,8 +34,7 @@ Pagania is a **one-person project**. This is international EU language version u
 │
 ├── static/
 │   ├── css/
-│   │   ├── custom.css
-│   │   └── pico.min.css
+│   │   └── custom.css
 │   ├── js/
 │   │   ├── main.js
 │   │   └── marked.min.js
