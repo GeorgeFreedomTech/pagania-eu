@@ -1,13 +1,19 @@
 /* ========================================================================
    PAGANIA — VISUAL SYSTEM
+
    ------------------------------------------------------------------------
+
    The design intentionally keeps the warm wood / paper palette.
+
    Content is supplied separately through Markdown.
+
    ======================================================================== */
+
 
 /* ------------------------------------------------------------------------
    1. BASE PAGE / PALETTE
    ------------------------------------------------------------------------ */
+
 html {
     scroll-behavior: smooth;
 }
@@ -19,36 +25,46 @@ html {
     height: 100%;
 }
 
-[data-theme="dark"] {
-    --pico-card-background-color: #e7dabd;
-    --pico-background-color: #f6f5f3;
-    --pico-muted-border-color: #c2ab86;
-    --pico-color: #312318;
-    --pico-h1-color: #1a120c;
-    --pico-h2-color: #1a120c;
-    --pico-h3-color: #1a120c;
-    --pico-muted-color: #7a5f45;
-    --pico-primary: #3e2723;
-    --pico-primary-hover: #261714;
-    --pico-primary-focus: rgba(62, 39, 35, 0.2);
-    --pico-primary-inverse: #f5ecd8;
-    --pico-border-radius: 0.12rem;
 
+/*
+   Pagania's own design tokens.
+
+   Pico CSS has been removed. These variables now form the complete
+   visual foundation of the project.
+*/
+
+:root {
     --pagania-accent: #8b4829;
     --pagania-accent-hover: #6f341d;
+
     --pagania-paper: #f6f5f3;
     --pagania-panel: #e7dabd;
+
     --pagania-ink: #312318;
     --pagania-heading: #1a120c;
     --pagania-muted: #7a5f45;
+
     --pagania-line: #c2ab86;
     --pagania-soft-line: rgba(122, 95, 69, 0.25);
+
+    --pagania-image: #d2c2a8;
+    --pagania-image-dark: #bba384;
+
+    --pagania-radius: 0.12rem;
+
+    --pagania-body-font: Inter, system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+
+    --pagania-serif: 'IM Fell English', Georgia, serif;
 }
+
 
 body {
     background: var(--pagania-paper);
     color: var(--pagania-ink);
-    font-family: Inter, system-ui, sans-serif;
+
+    font-family: var(--pagania-body-font);
+    line-height: 1.7;
 }
 
 a {
@@ -59,22 +75,37 @@ a:hover {
     color: var(--pagania-accent-hover);
 }
 
+img {
+    max-width: 100%;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
 
 /* ------------------------------------------------------------------------
    2. PAGE LAYOUT
-   ------------------------------------------------------------------------
+
    The global header now sits above the two main panels on desktop and
    mobile. The logical order is always:
-   
+
    HEADER → LEFT PANEL → RIGHT CONTENT
+
    ------------------------------------------------------------------------ */
 
 .split-layout {
     display: grid;
+
     grid-template-columns: 34% 66%;
     grid-template-rows: auto 1fr;
+
     min-height: 100vh;
 }
+
 
 .site-header {
     grid-column: 1 / -1;
@@ -94,12 +125,15 @@ a:hover {
     z-index: 20;
 }
 
+
 .split-left {
     grid-column: 1;
     grid-row: 2;
 
     background: var(--pagania-panel);
+
     padding: 2.3rem 2.25rem 3rem;
+
     border-right: 1px solid var(--pagania-line);
 
     display: flex;
@@ -107,18 +141,23 @@ a:hover {
     justify-content: space-between;
 
     min-height: calc(100vh - 57px);
+
     box-sizing: border-box;
 }
+
 
 .split-right {
     grid-column: 2;
     grid-row: 2;
 
     min-width: 0;
+
     padding: 0 5.5rem 4rem;
 
     max-height: calc(100vh - 57px);
+
     overflow-y: auto;
+
     box-sizing: border-box;
 }
 
@@ -129,35 +168,55 @@ a:hover {
 
 .brand-section {
     max-width: 27rem;
+
     margin-inline: auto;
+
     width: 100%;
 }
 
+
 .brand-title {
-    font-family: 'IM Fell English', Georgia, serif;
+    font-family: var(--pagania-serif);
+
     font-size: clamp(3rem, 5vw, 4.25rem);
+
     font-weight: normal;
+
     letter-spacing: 0.02em;
+
     line-height: 0.95;
+
     margin: 0 0 0.8rem;
+
     color: var(--pagania-heading);
 }
 
+
 .brand-motto {
     color: var(--pagania-muted);
+
     font-size: 0.87rem;
+
     line-height: 1.55;
+
     max-width: 22rem;
+
     margin-bottom: 1.5rem;
 }
+
 
 .profile-image {
     margin: 0;
 }
 
+
 .image-placeholder {
     background:
-        linear-gradient(135deg, rgba(49, 35, 24, 0.08), rgba(49, 35, 24, 0.2)),
+        linear-gradient(
+            135deg,
+            rgba(49, 35, 24, 0.08),
+            rgba(49, 35, 24, 0.2)
+        ),
         repeating-linear-gradient(
             0deg,
             rgba(255,255,255,0.08) 0,
@@ -168,61 +227,95 @@ a:hover {
         #b59a74;
 
     min-height: 0;
+
     padding: 0;
+
     box-sizing: border-box;
 
     position: relative;
+
     overflow: hidden;
+
     color: rgba(255, 250, 240, 0.92);
 }
 
+
 .image-placeholder img {
     display: block;
+
     width: 100%;
     height: auto;
     max-width: 100%;
 }
 
+
 .image-placeholder::before {
     content: '';
+
     position: absolute;
+
     inset: 0.75rem;
+
     border: 1px solid rgba(255, 250, 240, 0.4);
+
     pointer-events: none;
 }
 
+
 .image-placeholder span {
     position: relative;
+
     z-index: 1;
+
     font-size: 0.62rem;
+
     letter-spacing: 0.14em;
+
     text-transform: uppercase;
 }
+
 
 .profile-image figcaption {
     margin-top: 0.65rem;
+
     color: var(--pagania-muted);
+
     font-size: 0.68rem;
+
     letter-spacing: 0.11em;
+
     text-transform: uppercase;
 }
 
+
 .left-meta {
     display: flex;
+
     gap: 0.8rem;
+
     flex-wrap: wrap;
+
     color: var(--pagania-muted);
+
     font-size: 0.63rem;
+
     letter-spacing: 0.14em;
+
     border-top: 1px solid var(--pagania-soft-line);
+
     padding-top: 0.9rem;
+
     max-width: 27rem;
+
     margin-inline: auto;
+
     width: 100%;
 }
 
+
 .left-meta span + span::before {
     content: '·';
+
     margin-right: 0.8rem;
 }
 
@@ -235,10 +328,13 @@ a:hover {
     order: 2;
 }
 
+
 .controls-section {
     display: flex;
+
     justify-content: flex-end;
     align-items: center;
+
     gap: 0.45rem;
 
     padding: 0.75rem 0;
@@ -246,51 +342,72 @@ a:hover {
     color: var(--pagania-muted);
 }
 
+
 .language-link {
     font-size: 0.68rem;
+
     letter-spacing: 0.1em;
+
     text-decoration: none;
+
     color: var(--pagania-muted);
 }
 
+
 .language-link.active {
     color: var(--pagania-heading);
+
     font-weight: 600;
 }
+
 
 .top-nav {
     order: 1;
 
     margin: 0;
+
     padding: 0.85rem 0;
 }
 
+
 .top-nav ul {
     display: flex;
+
     align-items: center;
+
     justify-content: flex-start;
 
     gap: clamp(0.8rem, 2vw, 1.65rem);
 
     margin: 0;
+
     padding: 0;
 
     list-style: none;
+
     overflow-x: auto;
 }
+
 
 .top-nav li {
     flex: 0 0 auto;
 }
 
+
 .top-nav a {
     color: var(--pagania-ink);
+
     font-size: 0.8rem;
+
     font-weight: 600;
+
     text-decoration: none;
+
     letter-spacing: 0.04em;
+
     white-space: nowrap;
 }
+
 
 .top-nav a:hover {
     color: var(--pagania-accent);
@@ -303,40 +420,63 @@ a:hover {
 
 .home-section {
     min-height: 62vh;
+
     display: grid;
+
     grid-template-columns: minmax(0, 1fr) 11rem;
+
     gap: 3rem;
+
     align-items: center;
+
     padding-top: 4rem;
+
     padding-bottom: 4rem;
 }
+
 
 .home-intro {
     max-width: 48rem;
 }
 
+
 .eyebrow {
     color: var(--pagania-muted);
+
     font-size: 0.65rem;
+
     font-weight: 600;
+
     letter-spacing: 0.15em;
+
     line-height: 1.5;
+
     text-transform: uppercase;
 }
 
+
 .home-section h2 {
-    font-family: 'IM Fell English', Georgia, serif;
+    font-family: var(--pagania-serif);
+
     font-size: clamp(3rem, 6vw, 5.7rem);
+
     font-weight: normal;
+
     line-height: 0.96;
+
     letter-spacing: -0.02em;
+
     margin: 0.8rem 0 1.5rem;
+
     color: var(--pagania-heading);
 }
 
+
 .home-section p {
     max-width: 42rem;
+
     color: var(--pagania-muted);
+
     line-height: 1.75;
 }
 
@@ -349,78 +489,219 @@ a:hover {
     padding: 3.5rem 0;
 }
 
+
 hr {
     margin: 0;
+
     border: 0;
+
     border-top: 1px solid var(--pagania-line);
 }
 
+
 .section-label-row {
     display: flex;
+
     align-items: center;
+
     gap: 0.9rem;
+
     margin-bottom: 2rem;
 }
 
+
 .section-number {
     color: var(--pagania-accent);
+
     font-size: 0.62rem;
+
     letter-spacing: 0.1em;
 }
 
+
 .section-label-row h2 {
-    font-family: 'IM Fell English', Georgia, serif;
+    font-family: var(--pagania-serif);
+
     font-size: clamp(2rem, 3.2vw, 3rem);
+
     font-weight: normal;
+
     line-height: 1;
+
     margin: 0;
+
     white-space: nowrap;
+
     color: var(--pagania-heading);
 }
 
+
 .section-lead {
     color: var(--pagania-muted);
+
     line-height: 1.7;
+
     max-width: 42rem;
 }
 
 
 /* ------------------------------------------------------------------------
    7. MARKDOWN CONTENT
-   ------------------------------------------------------------------------
+
    Markdown controls the words, while this controls their visual rhythm.
+
    ------------------------------------------------------------------------ */
 
 .markdown-content {
     max-width: 48rem;
+
     color: var(--pagania-ink);
+
     line-height: 1.75;
 }
+
 
 .markdown-content h1,
 .markdown-content h2,
 .markdown-content h3 {
-    font-family: 'IM Fell English', Georgia, serif;
+    font-family: var(--pagania-serif);
+
     font-weight: normal;
+
     color: var(--pagania-heading);
 }
+
+
+.markdown-content h1 {
+    font-size: 2.6rem;
+
+    line-height: 1.05;
+}
+
 
 .markdown-content h2 {
     font-size: 2rem;
 }
 
+
 .markdown-content h3 {
     font-size: 1.45rem;
 }
 
+
+.markdown-content p {
+    margin-top: 0;
+}
+
+
 .markdown-content a {
     color: var(--pagania-accent);
+
     text-decoration: none;
 }
 
+
+.markdown-content a:hover {
+    color: var(--pagania-accent-hover);
+
+    text-decoration: underline;
+}
+
+
 .markdown-content blockquote {
+    margin: 1.5rem 0;
+
     border-left: 2px solid var(--pagania-accent);
+
+    padding-left: 1rem;
+
     color: var(--pagania-muted);
+}
+
+
+.markdown-content ul,
+.markdown-content ol {
+    padding-left: 1.35rem;
+}
+
+
+.markdown-content li + li {
+    margin-top: 0.35rem;
+}
+
+
+.markdown-content code {
+    padding: 0.08rem 0.3rem;
+
+    background: rgba(122, 95, 69, 0.08);
+
+    border-radius: var(--pagania-radius);
+
+    color: var(--pagania-heading);
+
+    font-size: 0.9em;
+}
+
+
+.markdown-content pre {
+    overflow-x: auto;
+
+    margin: 1.5rem 0;
+
+    padding: 1rem 1.15rem;
+
+    background: #312318;
+
+    color: #f1e6d1;
+
+    border-radius: var(--pagania-radius);
+}
+
+
+.markdown-content pre code {
+    padding: 0;
+
+    background: transparent;
+
+    color: inherit;
+}
+
+
+.markdown-content table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    margin: 1.5rem 0;
+
+    font-size: 0.9rem;
+}
+
+
+.markdown-content th,
+.markdown-content td {
+    padding: 0.6rem 0.7rem;
+
+    border-bottom: 1px solid var(--pagania-line);
+
+    text-align: left;
+}
+
+
+.markdown-content th {
+    color: var(--pagania-heading);
+}
+
+
+.markdown-content img {
+    max-width: 100%;
+
+    height: auto;
+}
+
+
+.markdown-content hr {
+    margin: 2rem 0;
 }
 
 
@@ -430,60 +711,106 @@ hr {
 
 .gallery-grid {
     display: grid;
+
     grid-template-columns: repeat(2, minmax(0, 1fr));
+
     gap: 0.75rem;
 }
 
+
 .gallery-item {
     aspect-ratio: 4 / 3;
-    background: #d2c2a8;
+
+    background: var(--pagania-image);
+
     border: 1px solid var(--pagania-line);
+
     display: flex;
+
     align-items: flex-end;
+
     justify-content: flex-start;
-    padding: 0.8rem;
+
+    padding: 0;
+
     box-sizing: border-box;
+
     color: var(--pagania-muted);
+
     font-size: 0.62rem;
+
     letter-spacing: 0.08em;
+
     text-transform: uppercase;
+
+    overflow: hidden;
 }
+
+
+.gallery-item img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
 
 .gallery-item:nth-child(3n) {
     background: #c4af8d;
 }
 
+
 .gallery-item:nth-child(4n) {
-    background: #bba384;
+    background: var(--pagania-image-dark);
 }
 
+
 .subsection-title {
-    font-family: 'IM Fell English', Georgia, serif;
+    font-family: var(--pagania-serif);
+
     font-weight: normal;
+
     font-size: 1.6rem;
+
     margin: 3rem 0 1rem;
 }
 
+
 .video-grid {
     display: grid;
+
     grid-template-columns: repeat(2, minmax(0, 1fr));
+
     gap: 1rem;
 }
 
+
 .gallery-video {
     position: relative;
+
     width: 100%;
+
     aspect-ratio: 16 / 9;
-    background: #d2c2a8;
+
+    background: var(--pagania-image);
+
     border: 1px solid var(--pagania-line);
+
     overflow: hidden;
 }
 
+
 .gallery-video iframe {
     position: absolute;
+
     inset: 0;
+
     width: 100%;
+
     height: 100%;
+
     border: 0;
 }
 
@@ -494,20 +821,29 @@ hr {
 
 .contact-layout {
     display: grid;
+
     grid-template-columns: minmax(0, 1fr) 12rem;
+
     gap: 3rem;
+
     align-items: start;
 }
 
+
 .contact-note {
     border-left: 1px solid var(--pagania-line);
+
     padding-left: 1.25rem;
+
     color: var(--pagania-muted);
 }
 
+
 .contact-note p {
-    font-family: 'IM Fell English', Georgia, serif;
+    font-family: var(--pagania-serif);
+
     font-size: 1.15rem;
+
     line-height: 1.4;
 }
 
@@ -518,30 +854,42 @@ hr {
 
 .main-footer {
     margin-top: 2rem;
+
     padding: 2.5rem 0 1rem;
+
     text-align: center;
+
     color: var(--pagania-muted);
 }
 
+
 .footer-divider {
     font-family: Georgia, serif;
+
     font-size: 1.15rem;
+
     margin-bottom: 0.7rem;
+
     opacity: 0.65;
 }
 
+
 .main-footer p {
     margin-bottom: 0;
+
     line-height: 1.6;
 }
+
 
 .main-footer small {
     color: var(--pagania-muted);
 }
 
+
 .built-by a {
     text-decoration: none;
 }
+
 
 .built-by a:hover {
     text-decoration: underline;
@@ -560,6 +908,7 @@ hr {
     }
 }
 
+
 @media (max-width: 991px) {
 
     html,
@@ -567,13 +916,17 @@ hr {
         overflow: auto;
     }
 
+
     .split-layout {
         display: block;
+
         min-height: 100vh;
     }
 
+
     .site-header {
         position: sticky;
+
         top: 0;
 
         display: flex;
@@ -585,29 +938,37 @@ hr {
         z-index: 20;
     }
 
+
     .split-left {
         min-height: auto;
     }
 
+
     .split-right {
         padding-inline: 2rem;
+
         max-height: none;
+
         overflow-y: visible;
     }
+
 
     .brand-section,
     .left-meta {
         max-width: none;
     }
 
+
     .profile-image .image-placeholder {
         min-height: 230px;
     }
+
 
     .home-section {
         min-height: auto;
     }
 }
+
 
 @media (max-width: 760px) {
 
@@ -615,68 +976,90 @@ hr {
         padding: 2.5rem 1.25rem 1.5rem;
     }
 
+
     .split-right {
         padding-inline: 1.25rem;
     }
+
 
     .site-header {
         align-items: flex-start;
     }
 
+
     .top-nav {
         min-width: 0;
+
         flex: 1;
     }
 
+
     .top-nav ul {
         gap: 0.7rem 1rem;
+
         flex-wrap: wrap;
+
         overflow-x: visible;
     }
+
 
     .controls-section {
         flex-shrink: 0;
     }
 
+
     .profile-image .image-placeholder {
         min-height: 200px;
     }
 
+
     .home-section {
         grid-template-columns: 1fr;
+
         gap: 2rem;
+
         padding-top: 2.5rem;
+
         padding-bottom: 2.5rem;
     }
 
+
     .home-detail {
         border-left: 0;
+
         border-top: 1px solid var(--pagania-line);
+
         padding: 1.2rem 0 0;
     }
+
 
     .detail-mark {
         margin-top: 1rem;
     }
+
 
     .service-layout,
     .contact-layout {
         grid-template-columns: 1fr;
     }
 
+
     .service-image {
         min-height: 250px;
     }
+
 
     .gallery-grid,
     .video-grid {
         grid-template-columns: 1fr;
     }
 
+
     .section-label-row h2 {
         white-space: normal;
     }
 }
+
 
 @media (max-width: 520px) {
 
@@ -684,29 +1067,36 @@ hr {
         padding-inline: 1rem;
     }
 
+
     .controls-section {
         justify-content: flex-start;
     }
+
 
     .top-nav ul {
         gap: 0.5rem 0.8rem;
     }
 
+
     .top-nav a {
         font-size: 0.75rem;
     }
+
 
     .home-section h2 {
         font-size: 3.1rem;
     }
 
+
     .content-section {
         padding: 2.8rem 0;
     }
 
+
     .left-meta {
         gap: 0.55rem;
     }
+
 
     .left-meta span + span::before {
         margin-right: 0.55rem;

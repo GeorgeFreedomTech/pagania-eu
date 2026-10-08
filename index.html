@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -9,8 +9,7 @@
     <!-- Typography: serif for Pagania's editorial / historical character, sans-serif for UI and body text. -->
     <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- Pico CSS provides the small semantic baseline; Pagania's visual identity is defined in style.css. -->
-    <link rel="stylesheet" href="static/css/pico.min.css">
+    <!-- Pagania's visual identity is defined entirely in style.css. -->
     <link rel="stylesheet" href="static/css/style.css">
 
     <!-- Marked.js renders the editable Markdown content -->
@@ -59,7 +58,10 @@
                 <!-- Main Pagania visual -->               
                 <figure class="profile-image">
                     <div class="image-placeholder">
-                        <img src="/static/img/pagania-profile.jpg">
+                        <img
+                            src="/static/img/pagania-profile.jpg"
+                            alt="Pagania"
+                        >
                     </div>
         
                 </figure>
@@ -85,6 +87,7 @@
                 <div class="home-intro">
                     <span class="eyebrow">Consultations / Workshops / Lectures</span>                   
                     <div id="content-home" class="markdown-content">Loading about...</div>
+                </div>
             </section>
 
             <hr>
@@ -117,25 +120,64 @@
                     <span class="section-number">03</span>
                     <h2>Portfolio</h2>            
                 </div>
+
                 <h3 class="subsection-title">Gallery</h3>
                 <p class="section-lead">Pics of Pagania activities, workshops and presentations.</p>
                 
                 <!-- Pics grid: Pagania workshops, events and presentations material -->
                 <div class="gallery-grid">
-                    <div class="gallery-item"><img src="static/img/pagania-games.JPG" alt="historical board games Pagania"></div>
-                    <div class="gallery-item"><img src="static/img/pagania-workshop.jpg" alt="Viking workshop Pagania"></div>
-                    <div class="gallery-item"><img src="static/img/pagania-runes-ogham-divination.jpg" alt="Pagania divination with runes and ogham"></div>
-                    <div class="gallery-item"><img src="static/img/pagania-tent.jpg" alt="historical tent Pagania"></div>
+                    <div class="gallery-item">
+                        <img src="static/img/pagania-games.JPG" alt="historical board games Pagania">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="static/img/pagania-workshop.jpg" alt="Viking workshop Pagania">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="static/img/pagania-runes-ogham-divination.jpg" alt="Pagania divination with runes and ogham">
+                    </div>
+
+                    <div class="gallery-item">
+                        <img src="static/img/pagania-tent.jpg" alt="historical tent Pagania">
+                    </div>
                 </div>
 
                 <h3 class="subsection-title">Videos</h3>
 
                 <!-- Video grid: Pagania YouTube material -->
                 <div class="video-grid">
-                    <div class="gallery-video"><iframe src="https://www.youtube.com/embed/7dsG97qQp1E" title="Pagania video 1" allowfullscreen></iframe></div>
-                    <div class="gallery-video"><iframe src="https://www.youtube.com/embed/QyiC1SE7vS8" title="Pagania video 2" allowfullscreen></iframe></div>
-                    <div class="gallery-video"><iframe src="https://www.youtube.com/embed/0aj--CNrUrE" title="Pagania video 3" allowfullscreen></iframe></div>
-                    <div class="gallery-video"><iframe src="https://www.youtube.com/embed/7NtCj1l32FM" title="Pagania video 4" allowfullscreen></iframe></div>
+                    <div class="gallery-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/7dsG97qQp1E"
+                            title="Pagania video 1"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+
+                    <div class="gallery-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/QyiC1SE7vS8"
+                            title="Pagania video 2"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+
+                    <div class="gallery-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/0aj--CNrUrE"
+                            title="Pagania video 3"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
+
+                    <div class="gallery-video">
+                        <iframe
+                            src="https://www.youtube.com/embed/7NtCj1l32FM"
+                            title="Pagania video 4"
+                            allowfullscreen
+                        ></iframe>
+                    </div>
                 </div>
             </section>
 
@@ -165,11 +207,25 @@
             <!-- Footer -->
             <footer class="main-footer">
                 <div class="footer-divider" aria-hidden="true">ᛉ</div>
-                <p><small>&copy; 2026 Pagania. Consultations · Workshops · Lectures
-                    <br>
-                <span class="built-by">Built by <a href="https://georgefreedom.com" target="_blank" rel="noopener" class="secondary">George Freedom</a></span></small></p>
+                <p>
+                    <small>
+                        &copy; 2026 Pagania. Consultations · Workshops · Lectures
+                        <br>
+                        <span class="built-by">
+                            Built by
+                            <a
+                                href="https://georgefreedom.com"
+                                target="_blank"
+                                rel="noopener"
+                                class="secondary"
+                            >George Freedom</a>
+                        </span>
+                    </small>
+                </p>
             </footer>
+
         </main>
+
     </div>
 
     <script src="static/js/main.js"></script>
