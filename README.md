@@ -34,7 +34,7 @@ Pagania is a **one-person project**. This is international EU language version u
 │
 ├── static/
 │   ├── css/
-│   │   └── custom.css
+│   │   └── style.css
 │   ├── js/
 │   │   ├── main.js
 │   │   └── marked.min.js
